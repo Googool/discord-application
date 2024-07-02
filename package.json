@@ -1,0 +1,23 @@
+{
+  "name": "newton",
+  "version": "1.0.0",
+  "description": "A Discord application.",
+  "main": "dist/index.js",
+  "author": "Ask Marius (Googool)",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc --build",
+    "start": "node dist/index.js",
+    "format": "prettier --write \"**/*.{json,ts}\""
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.3"
+  }
+}
