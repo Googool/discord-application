@@ -13,7 +13,7 @@ const event: Event = {
     client.user?.setPresence({
       activities: [
         {
-          name: 'Sea of Thieves',
+          name: 'a Game',
           type: ActivityType.Playing,
         },
       ],
