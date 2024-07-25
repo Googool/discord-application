@@ -1,5 +1,5 @@
 {
-  "name": "newton",
+  "name": "discord-application",
   "version": "1.0.0",
   "description": "A Discord application.",
   "main": "dist/index.js",
