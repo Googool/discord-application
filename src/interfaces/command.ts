@@ -1,7 +1,8 @@
 import { SlashCommandBuilder } from 'discord.js';
 
 interface CommandOptions {
-  // cooldown?: number;
+  cooldown?: number;
+  permissions?: string[];
 }
 
 export interface Command {
