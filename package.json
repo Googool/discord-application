@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "discord.js": "^14.15.3",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1"
   },
   "devDependencies": {
+    "@types/ioredis": "^5.0.0",
     "@types/node": "^20.14.9",
     "prettier": "^3.3.2",
     "typescript": "^5.5.3"
