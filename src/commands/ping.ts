@@ -12,7 +12,7 @@ const command: Command = {
     .setName('ping')
     .setDescription('Replies with Pong! 🏓'),
   options: {
-    // Option for cooldown goes here when implemented.
+    cooldown: 5, // Cooldown de 5 secconds
   },
 
   execute: async (interaction: ChatInputCommandInteraction) => {
