@@ -1,5 +1,5 @@
 import { ExtendedClient } from '../classes';
-import { Command, Event } from '../interfaces';
+import { Command, Event, Button } from '../interfaces';
 import path from 'path';
 import fs from 'fs';
 
@@ -45,6 +45,18 @@ export class Handler {
     this.client.on('ready', async () => {
       this.client.application?.commands.set(commandArray);
     });
+  }
+
+  public async load_buttons(): Promise<void> {
+    const buttonDir = this.load_files(`${process.cwd()}/dist/buttons`);
+    for (const file of buttonDir) {
+      if (file.endsWith('.ts') || file.endsWith('.js')) {
+        const buttonPath = path.resolve(file);
+        this.clear_cache(buttonPath);
+        const button: Button = (await import(buttonPath)).default;
+        this.client.buttons.set(button.name, button);
+      }
+    }
   }
 
   private load_files(dirName: string): string[] {

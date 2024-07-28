@@ -1,4 +1,10 @@
-import { SlashCommandBuilder, ChatInputCommandInteraction } from 'discord.js';
+import {
+  SlashCommandBuilder,
+  ChatInputCommandInteraction,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+} from 'discord.js';
 import { Command } from '../interfaces';
 
 const command: Command = {
@@ -6,14 +12,22 @@ const command: Command = {
     .setName('ping')
     .setDescription('Replies with Pong! 🏓'),
   options: {
-    // Option for cooldown goes here when implemented.
+    cooldown: 5, // Cooldown de 5 secconds
   },
 
   execute: async (interaction: ChatInputCommandInteraction) => {
+    const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
+      new ButtonBuilder()
+        .setCustomId('testButton')
+        .setLabel('Press me')
+        .setStyle(ButtonStyle.Primary)
+    );
+
     await interaction.reply({
       content: `🏓 Swinging... Or am I pinging?`,
       ephemeral: true,
       fetchReply: true,
+      components: [row],
     });
 
     const reply = await interaction.fetchReply();
