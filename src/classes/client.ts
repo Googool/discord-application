@@ -1,5 +1,5 @@
 import { Client, Collection, GatewayIntentBits, Partials } from 'discord.js';
-import { Command, Event } from '../interfaces';
+import { Command, Event, Button } from '../interfaces';
 import { Handler } from '../classes';
 
 const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
@@ -9,6 +9,7 @@ export class ExtendedClient extends Client {
   public commands: Collection<string, Command>;
   public cooldowns: Collection<string, Collection<string, number>>;
   public events: Collection<string, Event>;
+  public buttons: Collection<string, Button>;
 
   constructor() {
     super({
@@ -19,6 +20,7 @@ export class ExtendedClient extends Client {
     this.commands = new Collection();
     this.cooldowns = new Collection();
     this.events = new Collection();
+    this.buttons = new Collection();
   }
 
   public async start(): Promise<void> {
