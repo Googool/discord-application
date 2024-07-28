@@ -38,6 +38,12 @@ export class ExtendedClient extends Client {
       console.error(err);
     }
 
+    try {
+      await handler.load_buttons();
+    } catch (err) {
+      console.error(err);
+    }
+
     await this.login(process.env.DISCORD_TOKEN);
   }
 }
